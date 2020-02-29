@@ -209,7 +209,7 @@
       .append("g")
       .attr("transform", "translate(" + config.margin.left + "," + config.margin.top + ")");
 
-    d3.csv("mrc_table2.csv").then(function(cars) {
+    d3.csv("mrc_table2.csv").then(function(college) {
 
 
     // Extract the list of dimensions and create a scale for each.
@@ -221,19 +221,19 @@
       .range(["#fc0000","#eeff2e","#0544e6", "#00ffff" ])
 
     y["par_median"] = d3.scaleLinear()
-          .domain(d3.extent(cars, function(p) { return +p["par_median"]; }))
+          .domain(d3.extent(college, function(p) { return +p["par_median"]; }))
           .range([config.svg.height, 0]);
     
     y["k_median"] = d3.scaleLinear()
-    .domain(d3.extent(cars, function(p) { return +p["k_median"]; }))
+    .domain(d3.extent(college, function(p) { return +p["k_median"]; }))
     .range([config.svg.height, 0]);
 
     y["tier"] = d3.scaleLinear()
-    .domain(d3.extent(cars, function(p) { return +p["tier"]; }))
+    .domain(d3.extent(college, function(p) { return +p["tier"]; }))
     .range([config.svg.height, 0]);
 
     y["mr_kq5_pq1"] = d3.scaleLinear()
-    .domain(d3.extent(cars, function(p) { return +p["mr_kq5_pq1"]; }))
+    .domain(d3.extent(college, function(p) { return +p["mr_kq5_pq1"]; }))
     .range([config.svg.height, 0]);
 
     x.domain(dimensions);
@@ -244,7 +244,7 @@
     background = svg.append("g")
         .attr("class", "background")
         .selectAll("path")
-        .data(cars)
+        .data(college)
         .enter()
         .append("path")
         .attr("d", path);
@@ -253,7 +253,7 @@
     foreground = svg.append("g")
         .attr("class", "foreground")
         .selectAll("path")
-        .data(cars)
+        .data(college)
         .enter()
         .append("path")
         .attr("d", path)
