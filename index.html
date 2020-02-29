@@ -1,11 +1,31 @@
 <!DOCTYPE html>
+
+<style>
+  .has-image-centered {
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    bottom: -280px;
+    right: -1590px;
+    height: 300px;
+    width: 250px;
+  }
+
+  .sly {
+    color: hsl(204, 86%, 53%);
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.125;
+  }
+
+  
+</style>
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- TODO: Change title -->
-    <title>Website Template</title>
+    <title>HomeScreen</title>
 
     <!-- Load Bulma from CDN (consider saving it to repository instead) -->
     <!-- https://bulma.io/ -->
@@ -19,13 +39,15 @@
 
   <!-- Page header -->
   <!-- https://bulma.io/documentation/layout/hero/ -->
-  <section class="hero is-primary is-bold">
+  <section class="hero is-black is-bold noprint">
+    <figure class=" image has-image-centered  ">
+      <img src="https://i.pinimg.com/originals/2c/62/83/2c6283ff77a739690f2f9c7ff0ba6a0e.png">
+    </figure>
     <div class="hero-body">
       <div class="container">
-        <!-- TODO: Change title -->
-        <h1 class="title">Website Title</h1>
-        <!-- TODO: Change subtitle -->
-        <h2 class="subtitle">Website Subtitle</h2>
+        <h1 class="sly">Homework 2 </h1>
+        <h2 class="subtitle">Baseline Cross-Sectional Estimates of Child and Parent Income Visualizations</h2>
+        
       </div>
     </div>
   </section>
@@ -36,8 +58,6 @@
   <nav class="navbar is-light" role="navigation" aria-label="main navigation">
     <div class="container">
       <div class="navbar-brand">
-        <!-- TODO: Change link to repository homepage if needed -->
-        <!-- TODO: Change which navbar-item is-active if needed -->
         <a class="navbar-item is-active" href="index.html">
           <span class="icon"><i class="fas fa-home"></i></span>
           <span>Home</span>
@@ -58,44 +78,20 @@
             <span>Data</span>
           </a>
 
-          <!-- TODO: Modify or remove dropdown -->
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
-              Visualizations
-            </a>
 
-            <div class="navbar-dropdown">
-              <a class="navbar-item">
-                <span class="icon"><i class="fas fa-chart-line"></i></span>
-                <span>Line Chart</span>
+              <a class="navbar-item" href="Parallel.html">
+                <span class="icon"><i class="fas fa-map"></i></span>
+                <span>Parallel Coordinate</span>
               </a>
-              <a class="navbar-item">
-                <span class="icon"><i class="fas fa-chart-area"></i></span>
-                <span>Area Chart</span>
-              </a>
-
-              <hr class="navbar-divider">
-
-              <a class="navbar-item">
-                <span class="icon"><i class="fas fa-chart-bar"></i></span>
-                <span>Bar Chart</span>
-              </a>
-              <a class="navbar-item">
-                <span class="icon"><i class="fas fa-chart-pie"></i></span>
-                <span>Pie Chart</span>
-              </a>
-            </div>
           </div>
         </div>
 
         <!-- Right navbar items -->
         <div class="navbar-end">
-          <!-- TODO: Update as needed -->
           <a class="navbar-item" href="#about" title="About">
             <span class="icon"><i class="fas fa-tasks"></i></span>
             <span>Grade</span>
           </a>
-
           <a class="navbar-item" href="#about" title="About">
             <span class="icon"><i class="fas fa-info-circle"></i></span>
             <span>About</span>
@@ -111,131 +107,250 @@
       <!-- Begin page content -->
       <div class="content">
         <h1 class="title">
-          <!-- TODO: Change page title -->
-          Page Title
+          Homepage
         </h1>
         <p class="subtitle">
-          <!-- TODO: Change page subtitle -->
-          Page Subtitle
+         Description
         </p>
 
-        <p>This would be an excellent place to describe what this page is for, what to find in different sections, describe any motivation or theme behind your visualizations, and so on.</p>
+        <p>For this homework assignment, I visualize the “Baseline Cross-Sectional Estimates of Child and Parent Income Distributions by College” dataset from the “Mobility Report Cards: The Role of Colleges in Intergenerational Mobility” using Tableau Desktop and D3.js (version 5).
 
-        <p>You should not use this template unless you intend to customize it. Make it your own. Keep in mind this simple template is over 300 lines! You can see other examples of websites using Bulma at their showcase: <a href="https://bulma.io/expo/">bulma.io/expo/</a>.</p>
+        <p>I created a Parallel Coordinate in RawGraphs and D3 to represent the dataset.</p>
 
         <h2 id="data">Data</h2>
 
-        <p>Include some detailed information about the dataset here. You should <a href="#">add a link</a> to the original dataset. You might also want to quote the license:</p>
+        <p>The data set was taken from opportunity insights and which shows the <a href="https://opportunityinsights.org/paper/mobilityreportcards/"> “Mobility Report Cards: The Role of Colleges in Intergenerational Mobility”</a> paper.
+        <p>The data set that is being used is the Baseline Cross-Sectional Estimates of Child and Parent Income Distributions by College.</p>
 
         <blockquote>
           <p>
-            "This data is made available under the Public Domain Dedication and License v1.0 whose full text can be found at: <a href="http://www.opendatacommons.org/licenses/pddl/1.0/">www.opendatacommons.org/licenses/pddl/1.0/</a>"
+            This data is made available under opportunityinsights.org
           </p>
-          <cite>Put a citation here, possibly link to the dataset license information directly.</cite>
+          <cite>As part of our research studies, we put out publicly available datasets that can be used by other researchers and practitioners to support their own work. These datasets allow you to analyze social mobility and a variety of other
+            outcomes from life expectancy to patent rates by neighborhood, college, parental income level, and racial background. You can search for datasets by geographic level (e.g., Census tracts), by topic (e.g., education), or by the title of
+            the paper.</cite>
+            <p></p>
+          <p>
+            Need technical assistance with these data? Contact us at <a href="mailto:info@opportunityinsights.org">info@opportunityinsights.org</a>
+          </p>
         </blockquote>
 
-        <p>In addition to including a link to the source and license, you should describe the data. You might want a list of some sort to enumerate the different types of columns:</p>
+        <p>Here is the list of columns:</p>
 
-        <ol>
-          <li><strong>Column Name:</strong> Give a description of the column, including its type and possible range of values.</li>
+        <table class="table is-hoverable is-bordered grades">
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th>Description</th>
+            </tr>
+          </thead>
 
-          <li><strong>Column Name:</strong> Give a description of the column, including its type and possible range of values.</li>
+          <tbody>
+            <tr>
+              <td>super_opeid</td>
+              <td>Institution OPEID / Cluster ID when combining multiple
+                OPEIDs: </br>
+                -99 = late goers (attended college between 23-28) </br>
+                -9 = Never attended college (up to and including
+                year 2013) </br>
+                -1 = attending a college with insufficient data (less
+                than 100 students on average or incomplete data) </br>
+                >0 = specific colleges</td>
+            </tr>
+            <tr>
+              <td>name</td>
+              <td>Name of college (or college group)</td>
+            </tr>
+            <tr>
+              <td>type</td>
+              <td>Type :</br>
+                1 = public </br>
+                2 = private non-profit </br>
+                3 = for-profit</td>
+            </tr>
+            <tr>
+              <td>tier</td>
+              <td>Selectivity and type combination (see Table 6 for more
+                detailed descriptions of these groups):</br>
+                1 = Ivy Plus</br>
+                2 = Other elite schools (public and private)</br>
+                3 = Highly selective public</br>
+                4 = Highly selective private</br>
+                5 = Selective public</br>
+                6 = Selective private</br>
+                7 = Nonselective 4-year public</br>
+                8 = Nonselective 4-year private not-for-profit</br>
+                9 = Two-year (public and private not-for-profit)</br>
+                10 = Four-year for-profit</br>
+                11 = Two-year for-profit</br>
+                12 = Less than two year schools of any type</br>
+                13 = Attending college with insufficient data</br>
+                14 = Not in college between the ages of 19-22</td>
+            </tr>
+            <tr>
+              <td>tier_name</td>
+              <td>Name of college tier</td>
+            </tr>
+            <tr>
+              <td>iclevel</td>
+              <td>Four-year or two-year college</br>
+                1 = Four-year</br>
+                2 = Two-year</br>
+                3 = Less than Two-year</td>
+            </tr>
+            <tr>
+              <td>region</td>
+              <td>Census region:</br>
+                1 = Northeast</br>
+                2 = Midwest</br>
+                3 = South</br>
+                4 = West</td>
+            </tr>
+            <tr>
+              <td>state</td>
+              <td>State</td>
+            </tr>
+            <tr>
+              <td>cz</td>
+              <td>Commuting zone ID</td>
+            </tr>
+            <tr>
+              <td>czname</td>
+              <td>Commuting zone name</td>
+            </tr>
+            <tr>
+              <td>cfips</td>
+              <td>Combined state and county fips code</td>
+            </tr>
+            <tr>
+              <td>county</td>
+              <td>County</td>
+            </tr>
+            <tr>
+              <td>multi</td>
+              <td>Indicator that equals 1 if multiple colleges (IPEDS Unit IDs) are grouped in this Super OPEID</td>
+            </tr>
+            <tr>
+              <td>count</td>
+              <td>Average number of kids per cohort</td>
+            </tr>
+            <tr>
+              <td>female</td>
+              <td>Fraction female among kids.</td>
+            </tr>
+            <tr>
+              <td>k_married</td>
+              <td>Fraction of kids married in 2014.</td>
+            </tr>
+            <tr>
+              <td>mr_kq5_pq1</td>
+              <td>Mobility rate (joint probability of parents in bottom quintile and child in top quintile of the income distribution)</td>
+            </tr>
+            <tr>
+              <td>mr_ktop1_pq1</td>
+              <td>Upper-tail mobility rate (joint probability of parents in bottom quintile and child in top 1% of the income distribution)</td>
+            </tr>
+            <tr>
+              <td>par_mean</td>
+              <td>Mean parental income</td>
+            </tr>
+            <tr>
+              <td>par_median</td>
+              <td>Median parent household income (rounded to nearest $100)</td>
+            </tr>
+            <tr>
+              <td>par_rank</td>
+              <td>Mean parental income rank</td>
+            </tr>
+            <tr>
+              <td>par_q[PARQUINT]</td>
+              <td>Fraction of parents in an income quintile [PARQUINT]. 1 is the bottom quintile and 5 is the top.</td>
+            </tr>
+            <tr>
+              <td>par_top[PCTILE]pc</td>
+              <td>Fraction of parents in the top percentile [PCTILE]. For instance, par_toppt1pc refers to parents in the top 0.1% of the income distribution.</td>
+            </tr>
+            <tr>
+              <td>k_rank</td>
+              <td>Mean kid earnings rank</td>
+            </tr>
+            <tr>
+              <td>k_mean</td>
+              <td>Mean kid earnings</td>
+            </tr>
+            <tr>
+              <td>k_median</td>
+              <td>Median child individual earnings in 2014 (rounded to the nearest $100)</td>
+            </tr>
+            <tr>
+              <td>k_median_nozero</td>
+              <td>Median child individual earnings among positive earners in 2014 (rounded to the nearest $100)</td>
+            </tr>
+            <tr>
+              <td>k_0inc</td>
+              <td>Fraction of kids with zero labor earnings</td>
+            </tr>
+            <tr>
+              <td>k_q[KIDQUINT]</td>
+              <td>Fraction of kids in an income quintile [KIDQUINT]. 1 is the bottom quintile and 5 is the top.</td>
+            </tr>
+            <tr>
+              <td>k_top[PCTILE]pc</td>
+              <td>Fraction of kids in the top percentile [PCTILE]. For instance, top1pc refers to children in the top 1% of the income distribution.</td>
+            </tr>
+            <tr>
+              <td>k_rank_cond_parq[PARQUINT]</td>
+              <td>Mean kid earnings rank conditional on parent in quintile [PARQUINT]</td>
+            </tr>
+            <tr>
+              <td>kq[KIDQUINT]_cond_parq[PARQUINT]</td>
+              <td>Probability of kid in quintile [KIDQUINT] conditional on parent in quintile [PARQUINT]</td>
+            </tr>
+            <tr>
+              <td>ktop1pc_cond_parq[PARQUINT]</td>
+              <td>Probability of kid in top 1% conditional on parent in quintile [PARQUINT]</td>
+            </tr>
+            <tr>
+              <td>k_married_cond_parq[PARQUINT]</td>
+              <td>Fraction of kids married conditional on parent in quintile [PARQUINT]</td>
+            </tr>
+            <tr>
+              <td>shareimputed</td>
+              <td>Share of count-weighted data that was imputed using information from the 1983-84 cohorts</td>
+            </tr>
+            <tr>
+              <td>imputed</td>
+              <td>Indicator if any data for that super_opeid was imputed</td>
+            </tr>
+          </tbody>
+        </table>
 
-          <li><strong>Column Name:</strong> Give a description of the column, including its type and possible range of values.</li>
-
-          <li><strong>Column Name:</strong> Give a description of the column, including its type and possible range of values.</li>
-        </ol>
-
-        <p>This will of course differ depending on the assignment and data.</p>
+        <p>The data i used was: <b>par_median</b>, <b>k_median</b>, <b>tier</b>, <b>type</b>, and <b>mr_kq5_pq1</b> </p>
 
         <h3 id="wrangling">Wrangling</h3>
 
-        <p>Perhaps you had to do some data wrangling to the original dataset to prepare it for visualization. This would be a great place to discuss some of that wrangling.
-
-        <pre>
-You can even put code into these pre blocks.
-  It will preserve whitespace.
-    That is helpful for formatted code.
-        </pre>
-
-        <p>You can alternatively embed a Gist if you want. There is an "embed" button on <a href="https://gist.github.com/octocat/6cad326836d38bd3a7ae">the Gist page</a> and results in something like this:</p>
-
-        <script src="https://gist.github.com/octocat/6cad326836d38bd3a7ae.js"></script>
+        <p>The wrangling for this dataset was filtering the columns down to the used data.
 
         <h2 id="visualizations">Visualizations</h2>
 
-        <p>Ideally not everything would be on a single page like this example. Instead, you might want to put each section in its own webpage. You would need to carefully replicate the page template (with the header, navbar, and footer) and make the necessary updates. For example, you want the "About" navbar item to be considered active on an "About" web page.</p>
-
-        <p>For now this is just a demo. The buttons below do not go anywhere, but can be easily changed to link to different visualization pages.</p>
-
         <p class="buttons">
-          <a class="button is-large is-success" href="#">
-            <span class="icon is-medium">
-              <i class="fas fa-chart-line"></i>
-            </span>
-            <span>Line Chart</span>
-          </a>
-
-          <a class="button is-large is-primary" href="#">
-            <span class="icon is-medium">
-              <i class="fas fa-chart-area"></i>
-            </span>
-            <span>Area Chart</span>
-          </a>
-
-          <a class="button is-large is-info" href="#">
-            <span class="icon is-medium">
-              <i class="fas fa-chart-bar"></i>
-            </span>
-            <span>Bar Chart</span>
-          </a>
-
-          <a class="button is-large is-link" href="#">
-            <span class="icon is-medium">
-              <i class="fas fa-chart-pie"></i>
-            </span>
-            <span>Pie Chart</span>
-          </a>
+            <a class="button is-large is-info" href="linechart.html">
+              <span class="icon is-medium">
+                <i class="fas fa-map"></i>
+              </span>
+              <span>Parallel Coordinate</span>
+            </a>
         </p>
-
-        <!-- https://github.com/vega/vega-embed#basic-example -->
-        <p>It is possible to embed some visualizations directly here too. Here is <a href="https://github.com/vega/vega-embed#basic-example">an example</a> using Vega-Lite:</p>
-
-        <script src="https://cdn.jsdelivr.net/npm/vega@5.9.0"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.2"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.2.1"></script>
-
-        <div id="vis"></div>
-
-        <script type="text/javascript">
-        var spec = "https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.json";
-        vegaEmbed('#vis', spec).then(function(result) {
-          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        }).catch(console.error);
-        </script>
-
-        <h4>Instructions</h4>
-
-        <p>You will likely need to include instructions on how to interpet and use the visualization. In the case above, if you click the three dots <i class="fas fa-ellipsis-h has-text-grey-light	"></i> above it will open a menu where you can either save the visualization to a SVG or PNG, or alternatively open it up in the online Vega Editor.</p>
-
-        <h4>Discussion</h4>
-
-        <p>You may also need other sections, like a discussion section, per-visualization section on data wrangling, and others. Because of the extra content and code visualizations take, it might be worthwhile to break up your pages into one home page and then one page per visualization.</p>
 
         <span class="heading">Acknowledgements</span>
 
         <p>
-          <a href="#">Link to insiration</a><br/>
-          <a href="#">Link to StackOverflow snippet</a>
-        </p>
-
-        <p class="is-6">
-          <em>Thanks to Person Name for their suggestion to do something with the visualization.</em>
+          <p>Sophie's code</p>
+          <a href="https://bl.ocks.org/jasondavies/1341281#cars.csv">Link to Bl.ocks Parallel Coordinate snippet</a>
         </p>
 
         <h2 id="grade">Grade</h2>
 
-        <!-- TODO: Remove custom style if no longer needed -->
         <style>
           table.grades tbody tr td:nth-child(1),
           table.grades tbody tr td:nth-child(2) {
@@ -243,8 +358,7 @@ You can even put code into these pre blocks.
           }
         </style>
 
-        <!-- TODO: Change or remove table -->
-        <!-- https://bulma.io/documentation/elements/table/ -->
+
         <table class="table is-hoverable is-bordered grades">
           <thead>
             <tr>
@@ -255,28 +369,11 @@ You can even put code into these pre blocks.
           </thead>
 
           <tbody>
-            <tr>
-              <td>D</td>
-              <td><i class="has-text-success fas fa-check-circle"></i></td>
-              <td>Discussion of how this grade level was satisfied. Exactly how this section should look will depend on the assignment in question. There is no requirement for formatting in this way. This is just an example of what a table element might look like for this informaiton.</td>
-            </tr>
-
-            <tr>
-              <td>C</td>
-              <td><i class="has-text-success fas fa-check-circle"></i></td>
-              <td>Discussion of how this grade level was satisfied.</td>
-            </tr>
-
-            <tr>
-              <td>B</td>
-              <td><i class="has-text-warning far fa-check-circle"></i></td>
-              <td>Discussion of how this grade level was satisfied.</td>
-            </tr>
 
             <tr>
               <td>A</td>
-              <td><i class="has-text-danger fas fa-times-circle"></i></td>
-              <td>Discussion of how this grade level was not satisfied.</td>
+              <td><i class="has-text-success fas fa-check-circle"></i></td>
+              <td>Completed A-level requirements of creating the prototype and D3 V5 Parallel Coordinate.</td>
             </tr>
           </tbody>
 
@@ -287,24 +384,23 @@ You can even put code into these pre blocks.
         <!-- Profile box -->
         <!-- https://bulma.io/documentation/layout/media-object/ -->
         <article class="media">
-          <!-- TODO: Replace with profile photo -->
           <figure class="media-left">
-            <p class="image is-128x128"><img class="is-rounded" src="profile.png"></p>
+            <p class="image is-128x128"><img class="is-rounded" src="ale.png"></p>
           </figure>
 
           <div class="media-content">
             <div class="content">
               <!-- TODO: Replace with contact information -->
               <p>
-                <strong>Full Name</strong><br/>
+                <strong>Alejandro Garcia</strong><br/>
                 CS Major, <a href="https://www.usfca.edu/">University of San Francisco</a><br/>
-                <em>Expected Graduation: 20??</em><br/>
-                <i class="fas fa-envelope"></i> <a href="mailto:username@dons.usfca.edu">username@dons.usfca.edu</a>
+                <em>Expected Graduation: 2020</em><br/>
+                <i class="fas fa-envelope"></i> <a href="mailto:username@dons.usfca.edu">argarcia6@dons.usfca.edu</a>
               </p>
 
               <!-- TODO: Replace with brief biography -->
               <p>
-                Here is a brief bio about yourself. A good rule of thumb is to include at least one technical tidbit (favorite area or course within computer science), and one fun tidbit (such as loving dogs).
+                I am currently a Undergraduate CS student in my last semester in Unversity of San Francisco. Some fun facts about myself is that I was born in Miami, Flordia and my hobbies are photography/film making and gaming. Come check out my <a href="https://www.linkedin.com/in/alegar917/">linkedin</a>, and <a href="https://github.com/Alegar917">Github Pages</a>.
               </p>
 
               <!-- TODO: Replace or remove tags -->
@@ -318,7 +414,7 @@ You can even put code into these pre blocks.
                 <span class="tag">JavaScript</span>
                 <span class="tag">HTML</span>
                 <span class="tag">CSS</span>
-                <span class="tag">SVG</span>
+                <span class="tag">C#</span>
               </div>
             </div>
           </div>
@@ -343,7 +439,7 @@ You can even put code into these pre blocks.
 
       <p>
         <!-- TODO: Change to link to your Github repository -->
-        <a href="https://github.com/usf-cs360-spring2020/template-bulma" class="button is-small" style="padding-left: 1em; padding-right: 1em;">
+        <a href="https://github.com/usf-cs360-spring2020/homework1-Alegar917" class="button is-small" style="padding-left: 1em; padding-right: 1em;">
           <i class="fab fa-github-alt"></i>&nbsp;<strong>Github</strong>
         </a>
 

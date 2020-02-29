@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+    .has-image-centered {
+      /* margin-left: auto; */
+      /* margin-right: auto; */
+      bottom: -280px;
+      right: -1590px;
+      height: 300px;
+      width: 250px;
+    }
+    
+    .sly {
+    color: hsl(204, 86%, 53%);
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.125;
+  }
+
+    svg {
+      font: 10px sans-serif;
+    }
+    
+    .background path {
+      fill: none;
+      stroke: #ddd;
+      shape-rendering: crispEdges;
+    }
+    
+    .foreground path {
+      fill: none;
+      stroke: steelblue;
+    }
+    
+    .brush .extent {
+      fill-opacity: .3;
+      stroke: #fff;
+      shape-rendering: crispEdges;
+    }
+    
+    .axis line,
+    .axis path {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+    
+    .axis text {
+      text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+      cursor: move;
+    }
+    
+</style>
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <!-- TODO: Change title -->
+    <title>Parallel Coordinate</title>
+
+    <!-- Load Bulma from CDN (consider saving it to repository instead) -->
+    <!-- https://bulma.io/ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+
+    <!-- Load Font Awesome 5 (free) icons -->
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  </head>
+
+  <body>
+
+  <!-- Page header -->
+  <!-- https://bulma.io/documentation/layout/hero/ -->
+  <section class="hero is-black is-bold noprint">
+    <figure class=" image has-image-centered  ">
+      <img src="https://i.pinimg.com/originals/2c/62/83/2c6283ff77a739690f2f9c7ff0ba6a0e.png">
+    </figure>
+    <div class="hero-body">
+      <div class="container">
+        <!-- TODO: Change title -->
+        <h1 class="sly">Parallel Coordinate</h1>
+        <!-- TODO: Change subtitle -->
+        <h2 class="subtitle">Baseline Cross-Sectional Estimates of Child and Parent Income Visualizations</h2>
+      </div>
+    </div>
+  </section>
+  <!-- End page header -->
+
+  <!-- Page navigation -->
+  <!-- https://bulma.io/documentation/components/navbar/ -->
+  <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item is-active" href="index.html">
+          <span class="icon"><i class="fas fa-home"></i></span>
+          <span>Home</span>
+        </a>
+
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="main-menu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="main-menu" class="navbar-menu has-text-weight-medium">
+        <!-- Left navbar items -->
+        <div class="navbar-start">
+          <a class="navbar-item" href="index.html#data" title="Data">
+            <span class="icon"><i class="fas fa-table"></i></span>
+            <span>Data</span>
+          </a>
+
+            <a class="navbar-item" href="#">
+              <span class="icon"><i class="fas fa-map"></i></span>
+              <span>Parallel Coordinate</span>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Right navbar items -->
+        <div class="navbar-end">
+          <a class="navbar-item" href="index.html#about" title="About">
+            <span class="icon"><i class="fas fa-tasks"></i></span>
+            <span>Grade</span>
+          </a>
+          <a class="navbar-item" href="index.html#about" title="About">
+            <span class="icon"><i class="fas fa-info-circle"></i></span>
+            <span>About</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- End page navigation -->
+
+  <section class="section">
+    <div class="container">
+      <!-- Begin page content -->
+      <div class="content">
+        <h1 class="title has-text-centered">
+         Prototype and D3 Parallel Coordinate 
+        </h1>
+        <h2> Prototype Parallel Coordinate </h2>
+        
+         <div class="content has-text-centered"><figure >
+            <img  src="dashboard.png"> </img>
+          </figure></div> 
+          <div class="content has-text-centered"></div>
+    <h2> D3 Parallel Coordinate </h2>
+
+    <div class="content has-text-centered"><svg id = "parallel-chart" > </svg></div>
+
+    <p>Data acquired from <a href="https://opportunityinsights.org/wp-content/uploads/2018/04/mrc_table2.csv">opportunityinsights</a> on February 21, 2020.</p>
+    
+    <h3>Analysis</h3>
+
+    <p> For this Parallel Coordinate, I was attemping to oberve the findings from the "Mobility Report Cards: The Role of Colleges in Intergenerational Mobility".
+        The data I used was the k_median (the median child individual earnings in 2014) , Par_median (the median parent household income), tier (the type combination of school ex. Selective public
+         or Selective private), and mr_kq5_pq1 (Mobility rate of joint probability of parents in bottom quintile and child in top quintile) and I used the types of school ( <b style="color:#a5b402";>public</b>, <b style="color:#0544e6";>private non-profit</b>, <b style="color:#00ffff";>for-profit</b>, <b style="color:#fc0000";>N/A</b>) for the color scale.
+         From the graph we can compare the kid's income to the parent's income, and see what tier school did they attended. Also compare it to the mobility rate to see what tier school had the
+         highest mobility rate. From the graph we can actually prove and visualize the finding of "Mobility Report Cards: The Role of Colleges in Intergenerational Mobility". The two results were that "children from low- and high-income families 
+         have similar earnings outcomes conditional on the college they attend", in the graph we can see same income lines from the children from different Parent's income. The one thing they had in common was that the tier number
+         they came from. which shows this correlation of the tier school you attened and the income you will recieve. The other discovery was the rates of upward mobility –  "differed substantially across colleges because low-income access varies significantly  across  colleges  with  similar  earnings  outcomes"  
+         and "rates  of bottom-to-top  quintile mobility are highest at certain mid-tier public universities" Which can be seen with the mobility line since the majority of the line came mid-tier public school as you can 
+         traverse through the lines and compare the parent income and kid income and see what tier of school they attend.
+    </p>
+    
+
+
+    <script>
+
+  let config = {
+      'svg': {},
+      'margin': {},
+      'plot': {}
+    };
+
+    config.svg.height = 470;
+    config.svg.width = 1000;
+
+    config.margin.top = 20;
+    config.margin.right = 10;
+    config.margin.bottom = 30;
+    config.margin.left = 10;
+
+
+  // var margin = {top: 30, right: 10, bottom: 10, left: 10},
+  //     width = 960 - margin.left - margin.right,
+  //     height = 500 - margin.top - margin.bottom;
+
+    var x =  d3.scalePoint().range([0, config.svg.width]).padding(.2),
+      y = {},
+      dragging = {};
+
+  var line = d3.line(),
+      axis = d3.axisLeft(),
+      background,
+      foreground;
+
+  var svg = d3.select("body").select("#parallel-chart")
+      .attr("width", config.svg.width + config.margin.right + 100 )
+      .attr("height", config.svg.height + config.margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + config.margin.left + "," + config.margin.top + ")");
+
+    d3.csv("mrc_table2.csv").then(function(cars) {
+
+
+    // Extract the list of dimensions and create a scale for each.
+
+    dimensions = ["k_median","par_median","tier", "mr_kq5_pq1"];
+
+    let colors = d3.scaleOrdinal()
+      .domain(["","1","2","3",])
+      .range(["#fc0000","#eeff2e","#0544e6", "#00ffff" ])
+
+    y["par_median"] = d3.scaleLinear()
+          .domain(d3.extent(cars, function(p) { return +p["par_median"]; }))
+          .range([config.svg.height, 0]);
+    
+    y["k_median"] = d3.scaleLinear()
+    .domain(d3.extent(cars, function(p) { return +p["k_median"]; }))
+    .range([config.svg.height, 0]);
+
+    y["tier"] = d3.scaleLinear()
+    .domain(d3.extent(cars, function(p) { return +p["tier"]; }))
+    .range([config.svg.height, 0]);
+
+    y["mr_kq5_pq1"] = d3.scaleLinear()
+    .domain(d3.extent(cars, function(p) { return +p["mr_kq5_pq1"]; }))
+    .range([config.svg.height, 0]);
+
+    x.domain(dimensions);
+
+    console.log(dimensions);
+
+    // Add grey background lines for context.
+    background = svg.append("g")
+        .attr("class", "background")
+        .selectAll("path")
+        .data(cars)
+        .enter()
+        .append("path")
+        .attr("d", path);
+
+    // Add blue foreground lines for focus.
+    foreground = svg.append("g")
+        .attr("class", "foreground")
+        .selectAll("path")
+        .data(cars)
+        .enter()
+        .append("path")
+        .attr("d", path)
+        .style("stroke",function(d){ return colors(d.type)})
+        .style("stroke-opacity", "0.4");
+
+    // Add a group element for each dimension.
+    var g = svg.selectAll(".dimension")
+        .data(dimensions)
+        .enter().append("g")
+        .attr("class", "dimension")
+        .attr("transform", function(d) { return "translate(" + x(d) + ")"; });
+
+    // Add an axis and title.
+    g.append("g")
+        .attr("class", "axis")
+        .each(function(d) { d3.select(this).call(axis.scale(y[d])); })
+    g.append("text")
+        .style("text-anchor", "middle")
+        .attr("y", -9)
+        .text(function(d) { return d; });
+
+    
+      svg.append("text")
+      .attr("class", "text")
+      .attr("x", config.svg.width - 45)
+      .attr("y", config.svg.height - 95)
+      .text("Type of Schools:")
+      .attr("alignment-baseline", "middle")
+      .attr("font-weight", "bold")
+      .attr("font-size", "1.5em")
+
+      //add color circles
+    svg.append("circle")
+      .attr("cx", config.svg.width - 40)
+      .attr("cy", config.svg.height - 60)
+      .attr("r", 5)
+      .style("fill", "#eeff2e")
+
+    svg.append("circle")
+      .attr("cx", config.svg.width - 40)
+      .attr("cy", config.svg.height - 40)
+      .attr("r", 5)
+      .style("fill", "#0544e6")
+
+    svg.append("circle")
+      .attr("cx", config.svg.width - 40)
+      .attr("cy", config.svg.height - 20)
+      .attr("r", 5)
+      .style("fill", "#00ffff")
+    
+    svg.append("circle")
+    .attr("cx", config.svg.width - 40)
+    .attr("cy", config.svg.height)
+    .attr("r", 5)
+    .style("fill", "#fc0000")
+
+      //add text
+    svg.append("text")
+      .attr("class", "legend-text")
+      .attr("x", config.svg.width - 32)
+      .attr("y", config.svg.height - 56)
+      .text("Public")
+      .attr("alignment-baseline", "middle")
+    svg.append("text")
+      .attr("class", "legend-text")
+      .attr("x", config.svg.width - 32)
+      .attr("y", config.svg.height - 38)
+      .text("Private non-profit ")
+      .attr("alignment-baseline", "middle")
+    svg.append("text")
+      .attr("class", "legend-text")
+      .attr("x", config.svg.width - 32)
+      .attr("y", config.svg.height - 20)
+      .text("For-profit")
+      .attr("alignment-baseline", "middle")
+
+      svg.append("text")
+      .attr("class", "legend-text")
+      .attr("x", config.svg.width - 30)
+      .attr("y", config.svg.height)
+      .text("N/A")
+      .attr("alignment-baseline", "middle")
+
+
+    // Add and store a brush for each axis.
+    
+    // g.append("g")
+    //     .attr("class", "brush")
+    //     .each(function(d) {
+    //       d3.select(this).call(d.brush = d3.brushY()
+    //         .extent([[-10,0], [10,config.svg.height]])
+    //         .on("start", brushstart)
+    //         .on("brush", brush)
+    //         .on("end", brush)
+    //       )
+    //     })
+    //   .selectAll("rect")
+    //     .attr("x", -8)
+    //     .attr("width", 16);
+
+
+    // Handles a brush event, toggling the display of foreground lines.
+    // function brush() {
+
+    //   var actives = [];
+    //   svg.selectAll(".axis .brush")
+    //     .filter(function(d) {
+    //       return d3.brushSelection(this);
+    //     })
+    //     .each(function(d) {
+    //       actives.push({
+    //         dimension: d,
+    //         extent: d3.brushSelection(this)
+    //       });
+    //     });
+
+    //   var selected = dimensions.filter(function(d) {
+    //   if (actives.every(function(active) {
+    //       var dim = active.dimension;
+    //       // test if point is within extents for each active brush
+    //       return dim.type.within(d[dim.key], active.extent, dim);
+    //     })) {
+    //     return true;
+    //   }
+    // });
+
+    // }
+
+    // g.append("g")
+    //       .attr("class", "brush")
+    //       .each(function(d){
+    //           d3.select(this).call(d3.brushY()
+    //               .on("start", function(){ 
+    //                   d3.event.sourceEvent.stopPropagation(); 
+    //                   g.selectAll("rect") 
+    //                       .attr("width", 20)
+    //                       .attr("x", -10)
+    //               })
+    //               .on("brush", function(d, i){ 
+    //                   var actives = dimensions.filter(function(p) { return !y[p]; }),
+    //                   extents = actives.map(function(p) { return y[p].brush.extent(); });
+
+    //                   foreground.style("display", function(d) {
+    //                     return actives.every(function(p, i) {
+    //                     return extents[i][0] <= d[p] && d[p] <= extents[i][1];
+    //                     }) ? null : "none";
+    //                     });
+                  
+    //                   g.selectAll("rect") 
+    //                       .attr("width", 20)
+    //                       .attr("x", -10)
+    //               }))
+    //       })
+
+    // g.append("g")
+    //     .attr("class", "brush")
+    //     .each(function(d) {
+    //       d3.select(this).call(y[d].brush = d3.brushY(y[d]).on("brush", brushstart).on("end", brush));
+    //     })
+    // g.selectAll("rect")
+    //     .attr("x", -8)
+    //     .attr("width", 16);
+  });
+
+  function position(d) {
+    var v = dragging[d];
+    return v == null ? x(d) : v;
+  }
+
+  function transition(g) {
+    return g.transition().duration(500);
+  }
+
+  // Returns the path for a given data point.
+  function path(d) {
+    return line(dimensions.map(function(p) { return [position(p), y[p](d[p])]; }));
+  }
+
+  function brushstart() {
+    d3.event.sourceEvent.stopPropagation();
+  }
+
+  // Handles a brush event, toggling the display of foreground lines.
+  function brush() {
+    var actives = dimensions.filter(function(p) { return !y[p].brush.empty(); }),
+        extents = actives.map(function(p) { return y[p].brush.extent(); });
+    foreground.style("display", function(d) {
+      return actives.every(function(p, i) {
+        return extents[i][0] <= d[p] && d[p] <= extents[i][1];
+      }) ? null : "none";
+    });
+  }
+</script>
+</body>
+</html>
+        
